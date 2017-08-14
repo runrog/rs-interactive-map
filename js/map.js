@@ -78,7 +78,7 @@ const rsInteractiveMap = {
                        fill: '#ffffff',
                        opacity: 0,
                      })
-                     .stroke({ color: '#c40022', width: 2 })
+                     .stroke({ width: 0 })
                      .radius(3)
                      // (1/2 the tip - 1/2 the circle) for centering
                      .move((m.bubble.x - ((m.tip.width - (m.tip.width / 2)) -
@@ -111,13 +111,19 @@ const rsInteractiveMap = {
       // add items that need to be layered to top of svg
       this.tips.push(title.node, tipText.node);
       // create lines if option is enabled (in cases where circles may overlap)
-      if (m.line.enabled) {
-        const line = this.map.line(m.line.plots)
+      if (m.line) {
+        // api reference for polyline http://svgjs.com/elements/#svg-polyline
+        // x,y x,y x,y
+        const line = this.map.polyline(m.line.plots)
                         .stroke({
                           color: m.line.color,
                           width: m.line.width,
                           linecap: 'round',
-                        });
+                        })
+                        .style({
+                          opacity: 0.8,
+                        })
+                        .fill('none');
         line.move(m.line.x, m.line.y);
       }
       // setup bubble
@@ -145,99 +151,3 @@ const rsInteractiveMap = {
     this.redrawSVG(this.tips);
   },
 };
-
-
-const mapConfig = {
-  markers: [
-    {
-      bubble: {
-        color: '#c40022',
-        diameter: 30,
-        x: 125,
-        y: 295,
-      },
-      line: {
-        enabled: true,
-        color: '#c40022',
-        width: 2,
-        plots: '0, 50, 50, 30',
-        x: 155,
-        y: 285,
-      },
-      tip: {
-        icon: '',
-        type: 'Data Center',
-        title: 'Lon DC',
-        // array of lines
-        text: [
-          'I am a line!',
-          'I am another line!',
-        ],
-        link: 'some-link',
-        linkIcon: 'some-other-class',
-        width: 200,
-        height: 100,
-      },
-    },
-    {
-      bubble: {
-        color: '#c40022',
-        diameter: 35,
-        x: 770,
-        y: 285,
-      },
-      line: {
-        enabled: false,
-      },
-      tip: {
-        icon: '',
-        type: 'Data Center',
-        title: 'HK DC',
-        // array of lines
-        text: [
-          'HK is Rackspaces latest',
-          'Data Center, we patterned',
-          'with Digital Realty Trust who',
-          'lead the design and',
-          'construction of the building',
-          'to our requirements.',
-        ],
-        link: 'some-link',
-        linkIcon: 'some-other-class',
-        width: 250,
-        height: 160,
-      },
-    },
-    {
-      bubble: {
-        color: '#7c0421',
-        diameter: 20,
-        x: 135,
-        y: 235,
-      },
-      line: {
-        enabled: true,
-        color: '#c40022',
-        width: 2,
-        plots: '100, 50, 50, 20',
-        x: 155,
-        y: 250,
-      },
-      tip: {
-        icon: '',
-        type: 'Data Center',
-        title: 'Lon DC',
-        // array of lines
-        text: [
-          'I am a line!',
-        ],
-        link: 'some-link',
-        linkIcon: 'some-other-class',
-        width: 200,
-        height: 100,
-      },
-    },
-  ],
-};
-
-rsInteractiveMap.init(mapConfig);

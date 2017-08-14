@@ -14,4 +14,283 @@
 
   </body>
   <script src="dist/js/app.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  const mapConfig = {
+    markers: [
+      {
+        bubble: {
+          color: '#c40022',
+          diameter: 15,
+          x: 95,
+          y: 244,
+        },
+        line: {
+          color: '#222222',
+          width: 1,
+          // // x,y x,y x,y
+          plots: '40,40 120,40',
+          x: 110,
+          y: 253,
+        },
+        tip: {
+          icon: '',
+          type: 'Office',
+          title: 'ATX Office',
+          // array of lines
+          text: [
+            'I am a line!',
+            'I am another line!',
+          ],
+          link: 'some-link',
+          linkIcon: 'some-other-class',
+          width: 200,
+          height: 100,
+        },
+      },
+      {
+        bubble: {
+          color: '#7c0421',
+          diameter: 15,
+          x: 85,
+          y: 275,
+        },
+        line: {
+          color: '#222222',
+          width: 1,
+          // x,y x,y x,y
+          plots: '10,60 60,40 100,40',
+          x: 100,
+          y: 260,
+        },
+        tip: {
+          icon: '',
+          type: 'Office',
+          title: 'Castle',
+          // array of lines
+          text: [
+            'Located in San Antonio, TX',
+            'Castle is Rackspaces',
+            'headquarters!'
+          ],
+          link: 'some-link',
+          linkIcon: 'some-other-class',
+          width: 200,
+          height: 100,
+        },
+      },
+      {
+        bubble: {
+          color: '#7c0421',
+          diameter: 20,
+          x: 180,
+          y: 230,
+        },
+        tip: {
+          icon: '',
+          type: 'Data Center',
+          title: 'DFW DC',
+          // array of lines
+          text: [
+            'I am a line!',
+          ],
+          link: 'some-link',
+          linkIcon: 'some-other-class',
+          width: 200,
+          height: 100,
+        },
+      },
+      {
+        bubble: {
+          color: '#7c0421',
+          diameter: 15,
+          x: 175,
+          y: 275,
+        },
+        tip: {
+          icon: '',
+          type: 'Office',
+          title: 'Mexico Office',
+          // array of lines
+          text: [
+            'I am a line!',
+          ],
+          link: 'some-link',
+          linkIcon: 'some-other-class',
+          width: 200,
+          height: 100,
+        },
+      },
+      {
+        bubble: {
+          color: '#7c0421',
+          diameter: 20,
+          x: 200,
+          y: 195,
+        },
+        tip: {
+          icon: '',
+          type: 'Data Center',
+          title: 'ORD DC',
+          // array of lines
+          text: [
+            'I am a line!',
+          ],
+          link: 'some-link',
+          linkIcon: 'some-other-class',
+          width: 200,
+          height: 100,
+        },
+      },
+      {
+        bubble: {
+          color: '#c40022',
+          diameter: 15,
+          x: 260,
+          y: 203,
+        },
+        tip: {
+          icon: '',
+          type: 'Office',
+          title: 'NYC Office',
+          // array of lines
+          text: [
+            'I am a line!',
+            'I am another line!',
+          ],
+          link: 'some-link',
+          linkIcon: 'some-other-class',
+          width: 200,
+          height: 100,
+        },
+      },
+      {
+        bubble: {
+          color: '#7c0421',
+          diameter: 20,
+          x: 240,
+          y: 215,
+        },
+        tip: {
+          icon: '',
+          type: 'Data Center',
+          title: 'IAD DC',
+          // array of lines
+          text: [
+            'I am a line!',
+          ],
+          link: 'some-link',
+          linkIcon: 'some-other-class',
+          width: 200,
+          height: 100,
+        },
+      },
+      {
+        bubble: {
+          color: '#c40022',
+          diameter: 30,
+          x: 750,
+          y: 265,
+        },
+        tip: {
+          icon: '',
+          type: 'Data Center',
+          title: 'HK DC',
+          // array of lines
+          text: [
+            'HK is Rackspaces latest',
+            'Data Center, we patterned',
+            'with Digital Realty Trust who',
+            'lead the design and',
+            'construction of the building',
+            'to our requirements.',
+          ],
+          link: 'some-link',
+          linkIcon: 'some-other-class',
+          width: 250,
+          height: 160,
+        },
+      },
+      {
+        bubble: {
+          color: '#c40022',
+          diameter: 30,
+          x: 870,
+          y: 415,
+        },
+        tip: {
+          icon: '',
+          type: 'Data Center',
+          title: 'AU DC',
+          // array of lines
+          text: [
+            'HK is Rackspaces latest',
+            'Data Center, we patterned',
+            'with Digital Realty Trust who',
+            'lead the design and',
+            'construction of the building',
+            'to our requirements.',
+          ],
+          link: 'some-link',
+          linkIcon: 'some-other-class',
+          width: 250,
+          height: 160,
+        },
+      },
+      {
+        bubble: {
+          color: '#c40022',
+          diameter: 30,
+          x: 445,
+          y: 155,
+        },
+        tip: {
+          icon: '',
+          type: 'Data Center',
+          title: 'LON DC',
+          // array of lines
+          text: [
+            'HK is Rackspaces latest',
+            'Data Center, we patterned',
+            'with Digital Realty Trust who',
+            'lead the design and',
+            'construction of the building',
+            'to our requirements.',
+          ],
+          link: 'some-link',
+          linkIcon: 'some-other-class',
+          width: 250,
+          height: 160,
+        },
+      },
+      {
+        bubble: {
+          color: '#c40022',
+          diameter: 30,
+          x: 465,
+          y: 175,
+        },
+        tip: {
+          icon: '',
+          type: 'Data Center',
+          title: 'FRAN DC',
+          // array of lines
+          text: [
+            'HK is Rackspaces latest',
+            'Data Center, we patterned',
+            'with Digital Realty Trust who',
+            'lead the design and',
+            'construction of the building',
+            'to our requirements.',
+          ],
+          link: 'some-link',
+          linkIcon: 'some-other-class',
+          width: 250,
+          height: 160,
+        },
+      },
+    ],
+  };
+
+  rsInteractiveMap.init(mapConfig);
+  </script>
 </html>
