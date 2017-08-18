@@ -12,70 +12,39 @@ npm start
 ```
 You're browser should automatically launch at localhost 2004.
 ## Config
-The map is customizable through the config. It basically takes an array of markers in which you can edit it's bubble, tool tip and lines if needed. To reposition elements, you need to play with the x and y axises. See below:
+The map is customizable through the config. It basically takes an array of markers in which you can edit it's bubble, tool tip and lines if needed. To reposition elements, you need to play with the x and y axises. See below example:
 
 ```
 {
+  tipColor: '#ffffff',
+  officeColor: '#525252',
+  dcColor: '#c40022',
   markers: [
     {
       bubble: {
-        color: '#c40022',
-        diameter: 30,
-        x: 125,
-        y: 295,
-      },
-      line: {
-        enabled: true,
-        color: '#c40022',
-        width: 2,
-        plots: '0, 50, 50, 30',
-        x: 155,
-        y: 285,
+        type: 'Office',
+        diameter: 15,
+        x: 177,
+        y: 244,
       },
       tip: {
         icon: '',
-        type: 'Data Center',
-        title: 'Lon DC',
+        title: 'ATX Office',
         // array of lines
         text: [
-          'I am a line!',
-          'I am another line!',
+          'This is some information about',
+          'the context of this location',
+          'on our map.',
+          '',
+          'Speed Test',
         ],
         link: 'some-link',
         linkIcon: 'some-other-class',
         width: 200,
-        height: 100,
+        height: 130,
       },
     },
-    {
-      bubble: {
-        color: '#c40022',
-        diameter: 35,
-        x: 770,
-        y: 285,
-      },
-      line: {
-        enabled: false,
-      },
-      tip: {
-        icon: '',
-        type: 'Data Center',
-        title: 'HK DC',
-        // array of lines
-        text: [
-          'HK is Rackspaces latest',
-          'Data Center, we patterned',
-          'with Digital Realty Trust who',
-          'lead the design and',
-          'construction of the building',
-          'to our requirements.',
-        ],
-        link: 'some-link',
-        linkIcon: 'some-other-class',
-        width: 250,
-        height: 160,
-      },
-    },
+  ],
 }
 ```
 
