@@ -1,5 +1,6 @@
 const rsInteractiveMap = {
   map: SVG('rs-interactive-map').size(1000, 600),
+  circle: SVG.get('circle-1'),
   tips: [],
   offTimeout: null,
   hoverBubble(el, hidden) {
@@ -75,7 +76,7 @@ const rsInteractiveMap = {
       tip = tip.rect(m.tip.width, m.tip.height)
                      .hide()
                      .style({
-                       fill: '#ffffff',
+                       fill: config.tipColor,
                        opacity: 0,
                      })
                      .stroke({ width: 0 })
@@ -94,7 +95,7 @@ const rsInteractiveMap = {
         add.tspan(m.tip.title).newLine().fill('#c40022');
       })
       .hide()
-      .move((tip.x()) + 10, tip.y() + 10);
+      .move((tip.x()) + 10, tip.y() + 5);
       // tip body text
       const tipText = this.map.text((add) => {
         for (let x = 0; x < m.tip.text.length; x += 1) {
@@ -104,9 +105,9 @@ const rsInteractiveMap = {
       .hide()
       .font({
         family: 'Helvetica',
-        size: 14,
+        size: 12,
       })
-      .move((tip.x()) + 10, tip.y() + 30);
+      .move((tip.x()) + 10, tip.y() + 40);
 
       // add items that need to be layered to top of svg
       this.tips.push(title.node, tipText.node);
@@ -129,10 +130,16 @@ const rsInteractiveMap = {
       // setup bubble
       const bubble = this.map.circle(m.bubble.diameter)
                         .style({
-                          fill: m.bubble.color,
                           opacity: 0.5,
                         })
                         .move(m.bubble.x, m.bubble.y);
+      let bg = '';
+      if (m.bubble.type === 'Office') {
+        bg = config.officeColor;
+      } else if (m.bubble.type === 'Data Center') {
+        bg = config.dcColor;
+      }
+      bubble.style({ fill: bg });
       const hidden = {
         tip,
         title,
