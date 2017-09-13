@@ -3,6 +3,8 @@ This is a WIP project that creates a new svg map with custom bubbles/tooltips cr
 
 ![alt text](rs-map-demo.png "")
 
+[See Demo](https://0fb555c65f288d09a992-a2085a232a1d2a458a641f48ff12bf08.ssl.cf2.rackcdn.com/rs-interactive-map/index.html)
+
 ### Install
 ```
 npm install
